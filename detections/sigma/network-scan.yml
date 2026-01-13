@@ -1,1 +1,22 @@
+title: Potential Network Scanning Activity
+id: 11111111-1111-1111-1111-111111111111
+status: experimental
+description: Detects multiple inbound connections to multiple ports in a short time window.
+author: Omotara100
+date: 2025-04-01
+
+logsource:
+  product: windows
+  service: sysmon
+
+detection:
+  selection:
+    EventID: 3
+  condition: selection
+
+level: medium
+
+tags:
+  - attack.discovery
+  - attack.t1046
 
