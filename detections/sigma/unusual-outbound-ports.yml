@@ -1,1 +1,30 @@
+title: Unusual Outbound Network Port
+id: 33333333-3333-3333-3333-333333333333
+status: experimental
+description: Detects outbound connections to uncommon destination ports.
+author: Omotara100
+date: 2025-04-01
+
+logsource:
+  product: windows
+  service: sysmon
+
+detection:
+  selection:
+    EventID: 3
+    DestinationPort:
+      - 4444
+      - 1337
+      - 9001
+  condition: selection
+
+falsepositives:
+  - Custom applications
+  - Developer testing tools
+
+level: medium
+
+tags:
+  - attack.command_and_control
+  - attack.t1071
 
